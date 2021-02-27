@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup as bs
 app=Flask(__name__)
 
 
-
 @app.route('/',methods=["GET"])
 @cross_origin()
 def homepage():
@@ -21,13 +20,17 @@ def index():
         try:
             url="https://www.flipkart.com/search?q="+search
             uclient=ureq(url)
+            # print(uclient)
             flipkartpage=uclient.read()
             uclient.close()
             flipkart_html=bs(flipkartpage,'html.parser')
-            bigbox=flipkart_html.findAll('div',{'class':'_2pi5LC col-12-12'})
+            # print(flipkart_html)
+            bigbox=flipkart_html.findAll('div',{'class':'_1AtVbE col-12-12'})
+            # print('bigbox',bigbox)
             del bigbox[0:3]
             box=bigbox[0]
             product_link="https://www.flipkart.com"+box.div.div.div.a['href']
+            print('product link',product_link)
             popen=requests.get(product_link)
             p_html=bs(popen.text,'html.parser')
             commentsbox = p_html.find_all('div', {"class": "_16PBlm"})

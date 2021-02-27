@@ -1,4 +1,4 @@
-web: gunicorn app:rapp
+web: gunicorn rapp:app
 
 
 
