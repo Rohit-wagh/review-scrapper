@@ -25,6 +25,7 @@ def index():
             uclient.close()
             flipkart_html=bs(flipkartpage,'html.parser')
             # print(flipkart_html)
+            # _2pi5LC col-12-12 this class has been change with recent one
             bigbox=flipkart_html.findAll('div',{'class':'_1AtVbE col-12-12'})
             # print('bigbox',bigbox)
             del bigbox[0:3]
