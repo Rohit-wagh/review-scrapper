@@ -24,7 +24,7 @@ def index():
             flipkartpage=uclient.read()
             uclient.close()
             flipkart_html=bs(flipkartpage,'html.parser')
-            bigbox=flipkart_html.findAll('div',{'class':'_2pi5LC col-12-12'})
+            bigbox=flipkart_html.findAll('div',{'class':'_1AtVbE col-12-12'})
             del bigbox[0:3]
             box=bigbox[0]
             product_link="https://www.flipkart.com"+box.div.div.div.a['href']
