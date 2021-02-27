@@ -75,12 +75,14 @@ def index():
             return render_template("results.html",reviews=reviews)
         except :
             return "Something went wrong !"
+        ####
 
     else:
         return render_template('index.html')
 
 
 if __name__ =='__main__':
+    #main change
     app.run(debug=True)
 
 
